@@ -9,7 +9,7 @@ This is an example of a shared library for the Jenkins pipelines based on:
 - [JCasC](https://jenkins.io/projects/jcasc/) to configure a local jenkins instance.
 - [JobDSL](https://github.com/jenkinsci/job-dsl-plugin/wiki) to configure the pipelines to test the steps.
 - [JenkinsUnitPipeline](https://github.com/jenkinsci/JenkinsPipelineUnit) to test the shared library steps.
-- [Spock](http://spockframework.org/spock/docs/1.0/introduction.html) to test the shared library steps with some BDD approach.
+- [Spock](http://spockframework.org/spock/docs/1.0/introduction.html) to test the shared library steps with some specifications approach.
 - [Gradle](https://docs.gradle.org/current/userguide/userguide.html) to orchestrate the build/tests of this library.
 - [Vagrant](https://www.vagrantup.com/docs/index.html) and [VirtualBox](https://www.virtualbox.org/wiki/Documentation) to spin up jenkins agents using the Swarm connection.
 
@@ -74,14 +74,14 @@ This is an example of a shared library for the Jenkins pipelines based on:
 
 You can enable your own machine to become an agent, as simple as:
 
-1. Browse to < http://localhost:8080/computer/local/> in your web browser.
+1. Browse to <http://localhost:8080/computer/local/> in your web browser.
 
 2. Download <http://localhost:8080/jnlpJars/agent.jar>
 
 3. Run in your terminal:
 
    ```
-   java -jar agent.jar -jnlpUrl http://localhost:8080/computer/local/slave-agent.jnlp`
+   java -jar agent.jar -jnlpUrl http://localhost:8080/computer/local/slave-agent.jnlp
    ```
    NOTE: Java is required.
 
@@ -99,3 +99,8 @@ You can configure this jenkins instance as you wish, if so please change:
 
 * local/configs/jenkins.yaml using the [JCasC](https://jenkins.io/projects/jcasc/)
 * local/configs/plugins.txt
+
+
+## What's next?
+
+- Be able to programmatically run functional tests.
