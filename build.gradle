@@ -1,0 +1,57 @@
+plugins {
+  id 'groovy'
+  id 'idea'
+}
+
+group 'org.v1v.jenkinsci.shared'
+version '0.1-SNAPSHOT'
+
+idea {
+  module {
+    downloadJavadoc = true
+    downloadSources = true
+  }
+}
+
+sourceSets {
+  main {
+    groovy {
+      srcDirs = ['vars']
+    }
+    resources {
+      srcDirs = ['resources']
+    }
+  }
+  test {
+    groovy {
+      srcDirs = ['src/test/groovy']
+    }
+  }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  maven { url 'http://repo.jenkins-ci.org/releases/' }
+  mavenCentral()
+  jcenter()
+  maven {
+    url 'https://jitpack.io'
+  }
+}
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy-all:2.4.8'
+  testCompile 'org.jenkins-ci.main:jenkins-core:2.179'
+  testCompile 'org.spockframework:spock-core:1.2-groovy-2.4'
+
+  // Jenkins plugins
+  compile group: 'org.jenkins-ci.plugins', name: 'credentials', version: '2.1.13', ext: 'jar'
+  compile group: 'org.jenkins-ci.plugins', name: 'credentials-binding', version: '1.13', ext: 'jar'
+
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+  testCompile group: 'com.lesfurets', name: 'jenkins-pipeline-unit', version: '1.2'
+  compile 'com.github.AbletonDevTools:jenkins-pipeline-mocks:0.7.2'
+
+}
