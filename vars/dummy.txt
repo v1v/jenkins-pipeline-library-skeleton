@@ -1,0 +1,7 @@
+A sample of a step implementation.
+
+```
+dummy(text: 'hello world')
+```
+
+* *text*: what's the message to be printed. Default 'sample text'
