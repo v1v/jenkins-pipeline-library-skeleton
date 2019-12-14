@@ -51,3 +51,4 @@ unclassified:
 jobs:
   - file: "/var/pipeline-library/src/test/resources/folders/it.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/dummy.dsl"
+  - file: "/var/pipeline-library/src/test/resources/jobs/myPipeline.dsl"
