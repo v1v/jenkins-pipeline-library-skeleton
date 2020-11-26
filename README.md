@@ -42,6 +42,10 @@ This is an example of a shared library for the Jenkins pipelines based on:
 +- local                           # to enable a jenkins instance with this library
 |   +- configs
 |       +- jenkins.yaml
+|       +- plugins.txt
+|   +- workers
+|       +- linux
+|           +- Vagrantfile
 |   +- docker-compose.yml
 |   +- Dockerfile
 |
@@ -59,38 +63,27 @@ This is an example of a shared library for the Jenkins pipelines based on:
 1. Build docker image by running:
 
    ```
-   make build
+   make -C local build
    ```
 
 2. Start the local Jenkins master service by running:
 
    ```
-   make start
+   make -C local start
    ```
 
 3. Browse to <http://localhost:8080> in your web browser.
 
 #### Enable the local agent
 
-You can enable your own machine to become an agent, as simple as:
-
-1. Browse to <http://localhost:8080/computer/local/> in your web browser.
-
-2. Download <http://localhost:8080/jnlpJars/agent.jar>
-
-3. Run in your terminal:
-
-   ```
-   java -jar agent.jar -jnlpUrl http://localhost:8080/computer/local/slave-agent.jnlp
-   ```
-   NOTE: Java is required.
+  ```bash
+  make -C local start-local-worker
+  ```
 
 #### Enable the linux vagrant worker
 
   ```bash
-  cd local/workers/linux
-  vagrant up --provision
-  open http://localhost:8080
+  make -C local start-linux-worker
   ```
 
 #### Customise what plugins are installed
@@ -99,7 +92,6 @@ You can configure this jenkins instance as you wish, if so please change:
 
 * local/configs/jenkins.yaml using the [JCasC](https://jenkins.io/projects/jcasc/)
 * local/configs/plugins.txt
-
 
 ## What's next?
 
