@@ -20,7 +20,7 @@ jenkins:
             internalDir: "remoting"
             workDirPath: "/tmp"
       name: "local"
-      numExecutors: 1
+      numExecutors: 2
       remoteFS: "/tmp"
       retentionStrategy: "always"
 
