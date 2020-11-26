@@ -1,9 +1,9 @@
 ---
 version: "3.7"
 services:
-  jenkins:
+  jenkins-skeleton:
     build: .
-    container_name: jenkins-pipeline-library
+    container_name: jenkins-pipeline-library-skeleton
     environment:
       CASC_JENKINS_CONFIG: /var/jenkins_home/casc_configs
       JAVA_OPTS: >-
@@ -11,7 +11,7 @@ services:
         -Dhudson.model.UsageStatistics.disabled=true
     volumes:
       - type: volume
-        source: jenkins_home_pipeline_library
+        source: jenkins_home_pipeline_library_skeleton
         target: /var/jenkins_home
       - type: bind
         source: ./configs/jenkins.yaml
@@ -33,11 +33,11 @@ services:
           cpus: '0.25'
           memory: 100M
     networks:
-      pipeline-library:
+      pipeline-library-skeleton:
 
 volumes:
-  jenkins_home_pipeline_library:
+  jenkins_home_pipeline_library_skeleton:
 
 networks:
-  pipeline-library:
+  pipeline-library-skeleton:
     driver: bridge
